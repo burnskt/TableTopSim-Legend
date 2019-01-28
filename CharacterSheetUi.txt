@@ -1,0 +1,155 @@
+<Defaults>
+    <Panel class="FrontPage" width="750" height="1000" position="0 0 -10.1" rotation="0 0 180" scale="0.18 0.18"/>
+    <Panel class="BackPage" width="750" height="1000"  position="0 0 3" rotation="0 180 180" scale="0.18 0.18"/>
+    <!-- (initial version from dnd clone)<InputField rectAlignment="UpperLeft" colors="#FFFFFF00|#FFFFFFFF|#C8C8C8FF|rgba(0.78,0.78,0.78,0.5)" onEndEdit="saveField" outlineSize="0 0" shadowDistance="0 0" fontSize="105" height="135" scale="0.1 0.1"/>-->
+    <InputField rectAlignment="UpperLeft" colors="#FFFFFF00|#FFFFFFFF|#C8C8C8FF|rgba(0.78,0.78,0.78,0.5)" onEndEdit="saveField" outlineSize="0 0" shadowDistance="0 0" fontSize="120" height="135" scale="0.1 0.1"/>
+
+    <InputField class="Number" characterValidation="integer" textAlignment="MiddleCenter" />
+    <InputField class="Multi" colors="#FFFFFF|#FFFFFF|#C8C8C8|rgba(0.78,0.78,0.78,0.5)" lineType="MultiLineNewLine"/>
+    <InputField class="Popup" fontSize="150" onEditEnd="savePowerField"/>
+    <InputField class="HeaderInput" height="150" fontStyle="Bold"/>
+    <InputField class="ActiveStatInput" height="200" width="300" fontStyle="Bold" characterValidation="integer" textAlignment="MiddleCenter"/>
+    <InputField class="CalculatedStatInput" interactable="false" placeholder="" height="200" width="300" foldStyle="Bold" characterValidation="integer" textAlignment="MiddleCenter"/>
+    <Button outlineSize="0 0" color="#ffffff00" shadowDistance="0 0" scale="0.1 0.1"/>
+    <Button class="PowerButton" rectAlignment="UpperLeft" scale="1 1" height="100%" width="100%" fontSize="12" textColor="White" onClick="spawnDespawn"/>
+    <Text fontSize="140" rectAlignment="UpperLeft" height="200" width="300" scale="0.1 0.1" />
+    <Toggle onValueChanged="saveToggle" colors="#00000000|#ffffffff|#00000000|#00000000" rectAlignment="UpperLeft" width="12" height="12" scale="0.5 0.5"/>
+    <Toggle class="training" width="20" height="20" scale="0.8 0.8"/>
+    <TableLayout class="PowerTable" rectAlignment="UpperLeft" width="240" columnWidths="220 20" color="White"/>
+</Defaults>
+<Panel class="FrontPage" id="FrontPage">
+<!-- Header -->
+<InputField id="PlayerName" class="HeaderInput" width="1000" offsetXY="220 -48"/>
+<Text width="1000" offsetXY="400 -45">Average</Text>
+<InputField id="Track1" class="HeaderInput" width="1000" offsetXY="550 -50"/>
+<InputField id="Track2" class="HeaderInput" width="1000" offsetXY="550 -70"/>
+<InputField id="Track3" class="HeaderInput" width="1000" offsetXY="550 -90"/>
+<InputField id="CharacterName" class="HeaderInput" width="1000" offsetXY="220 -70"/>
+<InputField id="Race" class="HeaderInput" width="1000" offsetXY="220 -90"/>
+<InputField id="Class" class="HeaderInput" width="1000" offsetXY="400 -90"/>
+<InputField id="Level" class="HeaderInput" width="300" offsetXY="475 -70"/>
+
+<!-- Ability stat blocks -->
+
+<InputField id="StrTotal" class="CalculatedStatInput" offsetXY="40 -150"/>
+<InputField id="DexTotal" class="CalculatedStatInput" offsetXY="40 -180"/>
+<InputField id="ConTotal" class="CalculatedStatInput" offsetXY="40 -211"/>
+<InputField id="IntTotal" class="CalculatedStatInput" offsetXY="40 -241"/>
+<InputField id="WisTotal" class="CalculatedStatInput" offsetXY="40 -272"/>
+<InputField id="ChaTotal" class="CalculatedStatInput" offsetXY="40 -302"/>
+
+<InputField id="StrRacialBonus" class="ActiveStatInput" offsetXY="120 -150"/>
+<InputField id="DexRacialBonus" class="ActiveStatInput" offsetXY="120 -180"/>
+<InputField id="ConRacialBonus" class="ActiveStatInput" offsetXY="120 -211"/>
+<InputField id="IntRacialBonus" class="ActiveStatInput" offsetXY="120 -241"/>
+<InputField id="WisRacialBonus" class="ActiveStatInput" offsetXY="120 -272"/>
+<InputField id="ChaRacialBonus" class="ActiveStatInput" offsetXY="120 -302"/>
+
+<InputField id="StrGeneralBonus" class="ActiveStatInput" offsetXY="152 -150"/>
+<InputField id="DexGeneralBonus" class="ActiveStatInput" offsetXY="152 -180"/>
+<InputField id="ConGeneralBonus" class="ActiveStatInput" offsetXY="152 -211"/>
+<InputField id="IntGeneralBonus" class="ActiveStatInput" offsetXY="152 -241"/>
+<InputField id="WisGeneralBonus" class="ActiveStatInput" offsetXY="152 -272"/>
+<InputField id="ChaGeneralBonus" class="ActiveStatInput" offsetXY="152 -302"/>
+
+<InputField id="StrMiscBonus" class="ActiveStatInput" offsetXY="187 -150"/>
+<InputField id="DexMiscBonus" class="ActiveStatInput" offsetXY="187 -180"/>
+<InputField id="ConMiscBonus" class="ActiveStatInput" offsetXY="187 -211"/>
+<InputField id="IntMiscBonus" class="ActiveStatInput" offsetXY="187 -241"/>
+<InputField id="WisMiscBonus" class="ActiveStatInput" offsetXY="187 -272"/>
+<InputField id="ChaMiscBonus" class="ActiveStatInput" offsetXY="187 -302"/>
+
+<InputField id="StrMod" class="CalculatedStatInput" offsetXY="225 -150"/>
+<InputField id="DexMod" class="CalculatedStatInput" offsetXY="225 -180"/>
+<InputField id="ConMod" class="CalculatedStatInput" offsetXY="225 -211"/>
+<InputField id="IntMod" class="CalculatedStatInput" offsetXY="225 -241"/>
+<InputField id="WisMod" class="CalculatedStatInput" offsetXY="225 -272"/>
+<InputField id="ChaMod" class="CalculatedStatInput" offsetXY="225 -302"/>
+
+<!-- Hit Points -->
+
+
+
+<!-- Skills -->
+<InputField id="AcrobaticsTotal" class="CalculatedStatInput" offsetXY="610 -152"/>
+<InputField id="AcrobaticsMod" class="ActiveStatInput" offsetXY="652 -152"/>
+<InputField id="AcrobaticsTrain" class="ActiveStatInput" offsetXY="687 -152"/>
+<InputField id="AcrobaticsMisc" class="ActiveStatInput" offsetXY="720 -152"/>
+
+<InputField id="AthleticsTotal" class="CalculatedStatInput" offsetXY="610 -174"/>
+<InputField id="AthleticsMod" class="ActiveStatInput" offsetXY="652 -174"/>
+<InputField id="AthleticsTrain" class="ActiveStatInput" offsetXY="687 -174"/>
+<InputField id="AthleticsMisc" class="ActiveStatInput" offsetXY="720 -174"/>
+
+<InputField id="LarcenyTotal" class="CalculatedStatInput" offsetXY="610 -196"/>
+<InputField id="LarcenyMod" class="ActiveStatInput" offsetXY="652 -196"/>
+<InputField id="LarcenyTrain" class="ActiveStatInput" offsetXY="687 -196"/>
+<InputField id="LarcenyMisc" class="ActiveStatInput" offsetXY="720 -196"/>
+
+<InputField id="StealthTotal" class="CalculatedStatInput" offsetXY="610 -218"/>
+<InputField id="StealthMod" class="ActiveStatInput" offsetXY="652 -218"/>
+<InputField id="StealthTrain" class="ActiveStatInput" offsetXY="687 -218"/>
+<InputField id="StealthMisc" class="ActiveStatInput" offsetXY="720 -218"/>
+
+<InputField id="RideTotal" class="CalculatedStatInput" offsetXY="610 -240"/>
+<InputField id="RideMod" class="ActiveStatInput" offsetXY="652 -240"/>
+<InputField id="RideTrain" class="ActiveStatInput" offsetXY="687 -240"/>
+<InputField id="RideMisc" class="ActiveStatInput" offsetXY="720 -240"/>
+
+<InputField id="VigorTotal" class="CalculatedStatInput" offsetXY="610 -261"/>
+<InputField id="VigorMod" class="ActiveStatInput" offsetXY="652 -261"/>
+<InputField id="VigorTrain" class="ActiveStatInput" offsetXY="687 -261"/>
+<InputField id="VigorMisc" class="ActiveStatInput" offsetXY="720 -261"/>
+
+<InputField id="ArcanaTotal" class="CalculatedStatInput" offsetXY="610 -283"/>
+<InputField id="ArcanaMod" class="ActiveStatInput" offsetXY="652 -283"/>
+<InputField id="ArcanaTrain" class="ActiveStatInput" offsetXY="687 -283"/>
+<InputField id="ArcanaMisc" class="ActiveStatInput" offsetXY="720 -283"/>
+
+<InputField id="EngineeringTotal" class="CalculatedStatInput" offsetXY="610 -305"/>
+<InputField id="EngineeringMod" class="ActiveStatInput" offsetXY="652 -305"/>
+<InputField id="EngineeringTrain" class="ActiveStatInput" offsetXY="687 -305"/>
+<InputField id="EngineeringMisc" class="ActiveStatInput" offsetXY="720 -305"/>
+
+<InputField id="GeographyTotal" class="CalculatedStatInput" offsetXY="610 -326"/>
+<InputField id="GeographyMod" class="ActiveStatInput" offsetXY="652 -326"/>
+<InputField id="GeographyTrain" class="ActiveStatInput" offsetXY="687 -326"/>
+<InputField id="GeographyMisc" class="ActiveStatInput" offsetXY="720 -326"/>
+
+<InputField id="HistoryTotal" class="CalculatedStatInput" offsetXY="610 -348"/>
+<InputField id="HistoryMod" class="ActiveStatInput" offsetXY="652 -348"/>
+<InputField id="HistoryTrain" class="ActiveStatInput" offsetXY="687 -348"/>
+<InputField id="HistoryMisc" class="ActiveStatInput" offsetXY="720 -348"/>
+
+<InputField id="MedicineTotal" class="CalculatedStatInput" offsetXY="610 -370"/>
+<InputField id="MedicineMod" class="ActiveStatInput" offsetXY="652 -370"/>
+<InputField id="MedicineTrain" class="ActiveStatInput" offsetXY="687 -370"/>
+<InputField id="MedicineMisc" class="ActiveStatInput" offsetXY="720 -370"/>
+
+<InputField id="NatureTotal" class="CalculatedStatInput" offsetXY="610 -392"/>
+<InputField id="NatureMod" class="ActiveStatInput" offsetXY="652 -392"/>
+<InputField id="NatureTrain" class="ActiveStatInput" offsetXY="687 -392"/>
+<InputField id="NatureMisc" class="ActiveStatInput" offsetXY="720 -392"/>
+
+<InputField id="BluffTotal" class="CalculatedStatInput" offsetXY="610 -414"/>
+<InputField id="BluffMod" class="ActiveStatInput" offsetXY="652 -414"/>
+<InputField id="BluffTrain" class="ActiveStatInput" offsetXY="687 -414"/>
+<InputField id="BluffMisc" class="ActiveStatInput" offsetXY="720 -414"/>
+
+<InputField id="DiplomacyTotal" class="CalculatedStatInput" offsetXY="610 -434"/>
+<InputField id="DiplomacyMod" class="ActiveStatInput" offsetXY="652 -434"/>
+<InputField id="DiplomacyTrain" class="ActiveStatInput" offsetXY="687 -434"/>
+<InputField id="DiplomacyMisc" class="ActiveStatInput" offsetXY="720 -434"/>
+
+<InputField id="IntimidateTotal" class="CalculatedStatInput" offsetXY="610 -458"/>
+<InputField id="IntimidateMod" class="ActiveStatInput" offsetXY="652 -458"/>
+<InputField id="IntimidateTrain" class="ActiveStatInput" offsetXY="687 -458"/>
+<InputField id="IntimidateMisc" class="ActiveStatInput" offsetXY="720 -458"/>
+
+<InputField id="PerceptionTotal" class="CalculatedStatInput" offsetXY="610 -478"/>
+<InputField id="PerceptionMod" class="ActiveStatInput" offsetXY="652 -478"/>
+<InputField id="PerceptionTrain" class="ActiveStatInput" offsetXY="687 -478"/>
+<InputField id="PerceptionMisc" class="ActiveStatInput" offsetXY="720 -478"/>
+
+
+</Panel>
